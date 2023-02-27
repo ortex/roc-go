@@ -11,16 +11,6 @@ type testEnv struct {
 	Receiver *Receiver
 }
 
-func makeReceiverConfig() ReceiverConfig {
-	return ReceiverConfig{
-		FrameSampleRate:  44100,
-		FrameChannels:    ChannelSetStereo,
-		FrameEncoding:    FrameEncodingPcmFloat,
-		ClockSource:      ClockInternal,
-		ResamplerProfile: ResamplerProfileDisable,
-	}
-}
-
 func makeSenderConfig() SenderConfig {
 	return SenderConfig{
 		FrameSampleRate:  44100,
