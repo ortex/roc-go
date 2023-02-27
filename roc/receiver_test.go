@@ -91,20 +91,20 @@ func TestReceiver_BindErrors(t *testing.T) {
 			iface:   InterfaceAudioSource,
 			wantErr: errors.New("endpoint is nil"),
 		},
-		//{
-		//	name:     "invalid endpoint",
-		//	slot:     SlotDefault,
-		//	iface:    InterfaceAudioSource,
-		//	endpoint: &Endpoint{},
-		//	wantErr:  newNativeErr("roc_endpoint_set_protocol()", -1),
-		//},
-		//{
-		//	name:     "incompatible iface and endpoint",
-		//	slot:     SlotDefault,
-		//	iface:    InterfaceAudioControl,
-		//	endpoint: &Endpoint{Protocol: ProtoRtsp, Host: "192.168.0.1"},
-		//	wantErr:  newNativeErr("roc_receiver_bind()", -1),
-		//},
+		{
+			name:     "invalid endpoint",
+			slot:     SlotDefault,
+			iface:    InterfaceAudioSource,
+			endpoint: &Endpoint{},
+			wantErr:  newNativeErr("roc_endpoint_set_protocol()", -1),
+		},
+		{
+			name:     "incompatible iface and endpoint",
+			slot:     SlotDefault,
+			iface:    InterfaceAudioControl,
+			endpoint: &Endpoint{Protocol: ProtoRtsp, Host: "192.168.0.1"},
+			wantErr:  newNativeErr("roc_receiver_bind()", -1),
+		},
 	}
 
 	for _, tt := range tests {
